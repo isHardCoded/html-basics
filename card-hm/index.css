@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+body {
+  background-color: #dadada;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 20px;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: rgb(164, 164, 164);
+  border-radius: 100%;
+}
+
+.header-btn {
+  width: 16px;
+  height: 16px;
+  background-color: rgb(164, 164, 164);
+  border-radius: 100%;
+}
+
+.header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image {
+  height: 300px;
+  background-color: rgb(164, 164, 164);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content-text {
+  margin-top: 20px;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: end;
+  flex-direction: row-reverse;
+  margin-top: 15px;
+  gap: 15px;
+}
+
+.button-1 {
+  background-color: rgb(59, 59, 59);
+  color: white;
+  padding: 6px 24px;
+  border-radius: 16px;
+}
+
+.button-2 {
+  background-color: rgb(255, 255, 255);
+  color: rgb(59, 59, 59);
+  padding: 6px 18px;
+  border-radius: 16px;
+  border: 1px solid rgb(59, 59, 59);
+}
