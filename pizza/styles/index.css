@@ -46,6 +46,7 @@ body {
 }
 
 .header__btn-price {
+  font-size: 16px;
   color: white;
   font-weight: bold;
 }
@@ -63,6 +64,7 @@ body {
 }
 
 .header__btn-cart-count {
+  font-size: 16px;
   color: white;
   font-weight: bold;
 }
