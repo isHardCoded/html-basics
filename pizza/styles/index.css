@@ -6,4 +6,63 @@ body {
   background-color: white;
   max-width: 1340px;
   margin: 50px auto;
+  padding: 50px 40px;
+  border-radius: 10px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo-container {
+  display: flex;
+  gap: 17px;
+}
+
+.header__logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__logo-title {
+  color: #181818;
+  font-size: 24px;
+}
+
+.header__logo-subtitle {
+  color: #7B7B7B;
+  font-size: 16px;
+}
+
+.header__btn {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background-color: #FE5F1E;
+  border-radius: 32px;
+  padding: 12px 18px;
+}
+
+.header__btn-price {
+  color: white;
+  font-weight: bold;
+}
+
+.header__btn-separate {
+  width: 1px;
+  height: 25px;
+  background-color: rgba(255, 255, 255, 0.199);
+}
+
+.header__btn-cart {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header__btn-cart-count {
+  color: white;
+  font-weight: bold;
 }
