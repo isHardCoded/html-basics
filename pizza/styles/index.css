@@ -10,6 +10,10 @@ body {
   border-radius: 10px;
 }
 
+main {
+  margin-top: 32px;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -83,6 +87,97 @@ body {
   font-weight: bold;
   border-radius: 30px;
   padding: 12px 24px;
+}
+
+.pizzas-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  align-items: center;
+
+  list-style: none;
+  margin-top: 35px;
+}
+
+.pizza-block {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pizza-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.pizza-name {
+  margin: 0 auto;
+}
+
+.pizza-parameters {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 7px 5px;
+  background-color: #F3F3F3;
+  border-radius: 10px;
+}
+
+.pizza-types, .pizza-sizes {
+  display: flex;
+  gap: 6px;
+}
+
+.pizza-param {
+  width: 100%;
+  color: #2C2C2C;
+  padding: 6px 0px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.pizza-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pizza-price {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.pizza-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background-color: white;
+  border: 1px solid #FE5F1E;
+
+  padding: 8px 10px;
+  border-radius: 30px;
+}
+
+.pizza-add-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FE5F1E;
+}
+
+.pizza-count {
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #FE5F1E;
+  color: white;
+  padding: 5px 9px;
+  border-radius: 100%;
+}
+
+.param-active {
+  background-color: white;
 }
 
 .active {

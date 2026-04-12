@@ -2,15 +2,25 @@ const pizzas = [
   {
     id: 1,
     name: 'Чизбургер-пицца',
-    type: {
-      thin: 'тонкое',
-      traditional: 'традиционное'
-    },
-    size: {
-      small: 26,
-      medium: 30,
-      large: 40
-    },
+    type: [
+      {
+        thin: 'тонкое', 
+      },
+      {
+        traditional: 'традиционное'
+      }
+    ],
+    size: [
+      {
+        small: 26
+      },
+      {
+        medium: 30
+      },
+      {
+        large: 40
+      },
+    ],
     price: {
       small: 590,
       medium: 790,
@@ -21,15 +31,25 @@ const pizzas = [
   {
     id: 2,
     name: 'Сырная',
-    type: {
-      thin: 'тонкое',
-      traditional: 'традиционное'
-    },
-    size: {
-      small: 26,
-      medium: 30,
-      large: 40
-    },
+    type: [
+      {
+        thin: 'тонкое', 
+      },
+      {
+        traditional: 'традиционное'
+      }
+    ],
+    size: [
+      {
+        small: 26
+      },
+      {
+        medium: 30
+      },
+      {
+        large: 40
+      },
+    ],
     price: {
       small: 490,
       medium: 690,
@@ -40,15 +60,25 @@ const pizzas = [
   {
     id: 3,
     name: 'Креветки со сладким чили',
-    type: {
-      thin: 'тонкое',
-      traditional: 'традиционное'
-    },
-    size: {
-      small: 26,
-      medium: 30,
-      large: 40
-    },
+    type: [
+      {
+        thin: 'тонкое', 
+      },
+      {
+        traditional: 'традиционное'
+      }
+    ],
+    size: [
+      {
+        small: 26
+      },
+      {
+        medium: 30
+      },
+      {
+        large: 40
+      },
+    ],
     price: {
       small: 690,
       medium: 890,
@@ -59,15 +89,25 @@ const pizzas = [
   {
     id: 4,
     name: 'Карбонара',
-    type: {
-      thin: 'тонкое',
-      traditional: 'традиционное'
-    },
-    size: {
-      small: 26,
-      medium: 30,
-      large: 40
-    },
+    type: [
+      {
+        thin: 'тонкое', 
+      },
+      {
+        traditional: 'традиционное'
+      }
+    ],
+    size: [
+      {
+        small: 26
+      },
+      {
+        medium: 30
+      },
+      {
+        large: 40
+      },
+    ],
     price: {
       small: 640,
       medium: 840,
@@ -78,15 +118,25 @@ const pizzas = [
   {
     id: 5,
     name: 'Песто',
-    type: {
-      thin: 'тонкое',
-      traditional: 'традиционное'
-    },
-    size: {
-      small: 26,
-      medium: 30,
-      large: 40
-    },
+    type: [
+      {
+        thin: 'тонкое', 
+      },
+      {
+        traditional: 'традиционное'
+      }
+    ],
+    size: [
+      {
+        small: 26
+      },
+      {
+        medium: 30
+      },
+      {
+        large: 40
+      },
+    ],
     price: {
       small: 580,
       medium: 780,
@@ -97,15 +147,25 @@ const pizzas = [
   {
     id: 6,
     name: 'Гавайская',
-    type: {
-      thin: 'тонкое',
-      traditional: 'традиционное'
-    },
-    size: {
-      small: 26,
-      medium: 30,
-      large: 40
-    },
+    type: [
+      {
+        thin: 'тонкое', 
+      },
+      {
+        traditional: 'традиционное'
+      }
+    ],
+    size: [
+      {
+        small: 26
+      },
+      {
+        medium: 30
+      },
+      {
+        large: 40
+      },
+    ],
     price: {
       small: 620,
       medium: 820,
@@ -143,6 +203,7 @@ const filters = [
 ]
 
 const filtersContainer = document.querySelector('.filters')
+const pizzasContainer = document.querySelector('.pizzas-list')
 
 filters.forEach((filter) => {
   const button = document.createElement('button')
@@ -154,6 +215,54 @@ filters.forEach((filter) => {
   }
 
   filtersContainer.appendChild(button)
+})
+
+pizzas.forEach((pizza) => {
+  const li = document.createElement('li')
+  li.innerHTML = `
+    <div class="pizza-block">
+      <img class="pizza-image" width="260" src="${pizza.imageUrl}" alt="">
+      <h4 class="pizza-name">${pizza.name}</h4>
+      <div class="pizza-parameters">
+        <div class="pizza-types">
+          <button class="pizza-param param-active">${pizza.type[0].thin}</button>
+          <button class="pizza-param">${pizza.type[1].traditional}</button>
+        </div>
+        <div class="pizza-sizes">
+          <button class="pizza-param param-active">26 см.</button>
+          <button class="pizza-param">30 см.</button>
+          <button class="pizza-param">40 см.</button>
+        </div>
+      </div>
+      <div class="pizza-actions">
+        <p class="pizza-price">от ${pizza.price.small} ₽</p>
+        <button class="pizza-add-btn">
+          <img width="12" src="./public/icons/pizza/add.svg" alt="">
+          <p class="pizza-add-text">Добавить</p>
+          <div class="pizza-count">2</div>
+        </button>
+      </div>
+    </div>
+  `
+  pizzasContainer.appendChild(li)
+
+  const pizzaBlock = li.querySelector('.pizza-block')
+  const typeButtons = pizzaBlock.querySelectorAll('.pizza-types .pizza-param')
+  const sizeButtons = pizzaBlock.querySelectorAll('.pizza-sizes .pizza-param')
+  
+  typeButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      typeButtons.forEach(b => b.classList.remove('param-active'))
+      e.target.classList.add('param-active')
+    })
+  })
+  
+  sizeButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      sizeButtons.forEach(b => b.classList.remove('param-active'))
+      e.target.classList.add('param-active')
+    })
+  })
 })
 
 const filterButtons = document.querySelectorAll('.filter')
