@@ -1,0 +1,41 @@
+body {
+  background-color: #FFDF8C;
+}
+
+.container {
+  background-color: white;
+  max-width: 1340px;
+  margin: 50px auto;
+  padding: 50px 40px;
+  border-radius: 10px;
+}
+
+main {
+  margin-top: 32px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo-container {
+  display: flex;
+  gap: 17px;
+}
+
+.header__logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__logo-title {
+  color: #181818;
+  font-size: 24px;
+}
+
+.header__logo-subtitle {
+  color: #7B7B7B;
+  font-size: 16px;
+}
