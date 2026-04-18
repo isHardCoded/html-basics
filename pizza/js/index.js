@@ -235,14 +235,25 @@ pizzas.forEach((pizza) => {
       const type = pizzaBlock.querySelector('.pizza-types .param-active').textContent
       const size = pizzaBlock.querySelector('.pizza-sizes .param-active').textContent
       const price = pizzaBlock.querySelector('.pizza-price').textContent
+      const imageUrl = pizzaBlock.querySelector('.pizza-image').attributes.getNamedItem("src").nodeValue
 
       let savedPizzas = JSON.parse(localStorage.getItem("pizzas") || "[]")
+
+      function getQuantity() {
+        let quantity = 1
+          savedPizzas.forEach(pizza => {
+              quantity = savedPizzas.filter(p => p.name === pizza.name).length
+            })
+            return(quantity)
+      }
 
       savedPizzas.push({
         name,
         type,
         size,
-        price
+        price: Number(price.replace(/[^0-9]/g, "")),
+        imageUrl,
+        quantity: getQuantity()
       })
       
       localStorage.setItem("pizzas", JSON.stringify(savedPizzas))
