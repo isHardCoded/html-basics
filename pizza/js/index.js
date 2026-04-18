@@ -10,17 +10,11 @@ const pizzas = [
         traditional: 'традиционное'
       }
     ],
-    size: [
-      {
-        small: 26
-      },
-      {
-        medium: 30
-      },
-      {
-        large: 40
-      },
-    ],
+    size: {
+      small: 26,
+      medium: 30,
+      large: 40
+    },
     price: {
       small: 590,
       medium: 790,
@@ -39,17 +33,11 @@ const pizzas = [
         traditional: 'традиционное'
       }
     ],
-    size: [
-      {
-        small: 26
-      },
-      {
-        medium: 30
-      },
-      {
-        large: 40
-      },
-    ],
+    size: {
+      small: 26,
+      medium: 30,
+      large: 40
+    },
     price: {
       small: 490,
       medium: 690,
@@ -68,17 +56,11 @@ const pizzas = [
         traditional: 'традиционное'
       }
     ],
-    size: [
-      {
-        small: 26
-      },
-      {
-        medium: 30
-      },
-      {
-        large: 40
-      },
-    ],
+    size: {
+      small: 26,
+      medium: 30,
+      large: 40
+    },
     price: {
       small: 690,
       medium: 890,
@@ -97,17 +79,11 @@ const pizzas = [
         traditional: 'традиционное'
       }
     ],
-    size: [
-      {
-        small: 26
-      },
-      {
-        medium: 30
-      },
-      {
-        large: 40
-      },
-    ],
+    size: {
+      small: 26,
+      medium: 30,
+      large: 40
+    },
     price: {
       small: 640,
       medium: 840,
@@ -126,17 +102,11 @@ const pizzas = [
         traditional: 'традиционное'
       }
     ],
-    size: [
-      {
-        small: 26
-      },
-      {
-        medium: 30
-      },
-      {
-        large: 40
-      },
-    ],
+    size: {
+      small: 26,
+      medium: 30,
+      large: 40
+    },
     price: {
       small: 580,
       medium: 780,
@@ -155,17 +125,11 @@ const pizzas = [
         traditional: 'традиционное'
       }
     ],
-    size: [
-      {
-        small: 26
-      },
-      {
-        medium: 30
-      },
-      {
-        large: 40
-      },
-    ],
+    size: {
+      small: 26,
+      medium: 30,
+      large: 40
+    },
     price: {
       small: 620,
       medium: 820,
@@ -218,7 +182,7 @@ filters.forEach((filter) => {
 })
 
 pizzas.forEach((pizza) => {
-  const li = document.createElement('li')
+  const li = document.createElement('li') 
   li.innerHTML = `
     <div class="pizza-block">
       <img class="pizza-image" width="260" src="${pizza.imageUrl}" alt="">
@@ -229,9 +193,9 @@ pizzas.forEach((pizza) => {
           <button class="pizza-param">${pizza.type[1].traditional}</button>
         </div>
         <div class="pizza-sizes">
-          <button class="pizza-param param-active">26 см.</button>
-          <button class="pizza-param">30 см.</button>
-          <button class="pizza-param">40 см.</button>
+          <button class="pizza-param param-active">${pizza.size.small} см.</button>
+          <button class="pizza-param">${pizza.size.medium} см.</button>
+          <button class="pizza-param">${pizza.size.large} см.</button>
         </div>
       </div>
       <div class="pizza-actions">
@@ -249,6 +213,7 @@ pizzas.forEach((pizza) => {
   const pizzaBlock = li.querySelector('.pizza-block')
   const typeButtons = pizzaBlock.querySelectorAll('.pizza-types .pizza-param')
   const sizeButtons = pizzaBlock.querySelectorAll('.pizza-sizes .pizza-param')
+  const addButtons = pizzaBlock.querySelectorAll('.pizza-add-btn')
   
   typeButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -261,6 +226,26 @@ pizzas.forEach((pizza) => {
     btn.addEventListener('click', (e) => {
       sizeButtons.forEach(b => b.classList.remove('param-active'))
       e.target.classList.add('param-active')
+    })
+  })
+
+  addButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const name = pizzaBlock.querySelector('.pizza-name').textContent
+      const type = pizzaBlock.querySelector('.pizza-types .param-active').textContent
+      const size = pizzaBlock.querySelector('.pizza-sizes .param-active').textContent
+      const price = pizzaBlock.querySelector('.pizza-price').textContent
+
+      let savedPizzas = JSON.parse(localStorage.getItem("pizzas") || "[]")
+
+      savedPizzas.push({
+        name,
+        type,
+        size,
+        price
+      })
+      
+      localStorage.setItem("pizzas", JSON.stringify(savedPizzas))
     })
   })
 })
